@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "default_choice": "auto",
+  "base_model": "Qwen3-ASR-1.7B",
+  "aligner_model": "Qwen3-ForcedAligner-0.6B",
+  "universal_quality_reference": "references/speech-f-workflow.md",
+  "styles": {
+    "auto": {
+      "label": "自动",
+      "description": "无口播跳过，有口播用默认。",
+      "effective_when_speech_present": "default"
+    },
+    "default": {
+      "label": "默认风格",
+      "description": "一般口播，保留自然节奏。",
+      "evidence_status": "reference_policy_requires_project_calibration",
+      "timing_policy": "修正口误、重复和突出呼吸；适度收紧句内多余气口，优先保留原有自然句间节奏。",
+      "within_clause_redundant_gap_reference_seconds": [
+        0.08,
+        0.15
+      ],
+      "sentence_pause_policy": "preserve_natural_only_shorten_clear_drag",
+      "whole_track_speedup": false
+    },
+    "compact": {
+      "label": "紧凑口播",
+      "description": "自媒体、时效新闻，衔接更紧。",
+      "evidence_status": "reference_policy_requires_project_calibration",
+      "basis_reference": "references/speech-f-workflow.md",
+      "timing_policy": "在同等质量保护下更积极收紧句内多余等待和误起；语义边界利落衔接，句间只收明确拖沓，保留观点、数字与转折的必要停顿。",
+      "within_clause_redundant_gap_reference_seconds": [
+        0.08,
+        0.15
+      ],
+      "sentence_pause_policy": "preserve_meaningful_not_uniformly_compress",
+      "inherit_visual_style": false,
+      "whole_track_speedup": false,
+      "future_material_calibration_required": true
+    },
+    "relaxed": {
+      "label": "舒缓口播",
+      "description": "讲座、课程，保留理解停顿。",
+      "evidence_status": "reference_policy_requires_project_calibration",
+      "timing_policy": "保留课堂分句、列举和理解停顿；积极处理废弃起音和突出换气，但不剪成连珠炮。",
+      "calibrated_reference_targets_seconds": {
+        "within_clause": 0.24,
+        "clause_or_list": 0.4,
+        "sentence": 0.6,
+        "concept": 0.85,
+        "unanchored_long_pause": 0.7
+      },
+      "targets_are_not_mandatory_durations": true,
+      "whole_track_speedup": false,
+      "future_material_calibration_required": true
+    }
+  }
+}

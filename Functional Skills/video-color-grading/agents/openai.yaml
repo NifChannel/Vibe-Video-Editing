@@ -1,0 +1,3 @@
+interface:
+  display_name: "调色"
+  short_description: "校正曝光与偏色，统一同场景镜头，并用画面和示波器验收。"

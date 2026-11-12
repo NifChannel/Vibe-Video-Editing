@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "functions": [
+    {
+      "id": "flower-text-sfx",
+      "name": "花字音效",
+      "description": "为花字、动态重点字幕和文字动效匹配音效。按动效和口播节奏从本机 Mixkit、Kenney 音效库选声，按需用 LAION CLAP 排候选，再试听、对帧和混音。",
+      "aliases": [
+        "花字配音效",
+        "动态字幕音效"
+      ],
+      "cues": "花字加音效、关键词弹出声、动效对点、CLAP 文本检索音效",
+      "reference": "Functional Skills/flower-text-sfx/SKILL.md",
+      "module": "Functional Skills/flower-text-sfx/module.json"
+    },
+    {
+      "id": "indextts-local",
+      "name": "本地 IndexTTS 配音",
+      "description": "自动准备本地 IndexTTS 环境与权重，使用获准参考音频生成配音。",
+      "aliases": [
+        "IndexTTS",
+        "本地配音"
+      ],
+      "cues": "文本转语音、视频旁白、本地 IndexTTS",
+      "reference": "Functional Skills/indextts-local/SKILL.md",
+      "module": "Functional Skills/indextts-local/module.json"
+    },
+    {
+      "id": "remotion-flower-text",
+      "name": "Remotion 花字",
+      "description": "使用 Remotion 制作花字、花体字、动态字幕和关键词强调。用户要求花字，或视频剪辑示例明显存在动态重点字、价格牌、关键词放大等花字时使用；从视频风格选择基础字体和颜色，按自然语句统一字体，复用花字模板或设计新效果。不用于普通无花字字幕，也不负责改稿、配音或整片剪辑。",
+      "aliases": [],
+      "cues": "动态重点字幕、花字模板、文字排布与可读性",
+      "reference": "Functional Skills/remotion-flower-text/SKILL.md",
+      "module": "Functional Skills/remotion-flower-text/module.json"
+    },
+    {
+      "id": "video-color-grading",
+      "name": "调色",
+      "description": "识别素材色彩空间，校正曝光与白平衡，按代表镜头匹配同组镜头，再结合画面对照和示波器验收。支持按项目要求套用 LUT 或制作参考风格。",
+      "aliases": [
+        "视频调色",
+        "校色",
+        "镜头匹配"
+      ],
+      "cues": "曝光、偏色、白平衡、镜头色差、LUT、Log、HDR 转 SDR",
+      "reference": "Functional Skills/video-color-grading/SKILL.md",
+      "module": "Functional Skills/video-color-grading/module.json"
+    },
+    {
+      "id": "video-sample-analysis",
+      "name": "样片分析",
+      "description": "分析参考成片的结构、节奏与剪辑手法。按目标粗扫全片，对照多支同风格样片验证共同做法，交付带时间码的项目拉片报告。",
+      "aliases": [
+        "样片拆解",
+        "参考片分析",
+        "拉片"
+      ],
+      "cues": "参考成片、长样片、多样片对照、风格学习、配帧报告",
+      "reference": "Functional Skills/video-sample-analysis/SKILL.md",
+      "module": "Functional Skills/video-sample-analysis/module.json"
+    },
+    {
+      "id": "zhao-sucai",
+      "name": "找素材",
+      "description": "找素材。从本地多集动画或视频中寻找符合指定动作、角色与视觉特征的片段，使用本地视觉模型初判、负例补查与帧级剪口复核，导出独立素材。适用于变身演出等长片检索，不负责将选段混剪成音乐成片。每次使用提醒是否跳过首尾各90秒，未经本次授权不套用固定跳过区间。",
+      "aliases": [],
+      "cues": "本地长视频检索、角色动作匹配与帧级选段",
+      "reference": "Functional Skills/zhao-sucai/SKILL.md",
+      "module": "Functional Skills/zhao-sucai/module.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/blazerior/videoediting-claude-skill",
+  "upstream_declared_version": "1.3.0",
+  "source_commit": null,
+  "upstream_snapshot_id": "sha256:0e5188cfb1412c6ba8e99df8f322a14ddb5e1b626e531a10746ddcad94040afb",
+  "license": "MIT",
+  "license_source": "https://github.com/blazerior/videoediting-claude-skill/blob/main/LICENSE",
+  "upstream_files_modified": false,
+  "distribution": "Selected unchanged tools required by the current speech workflow.",
+  "file_sha256": {
+    "assets/tools/build.py": "58659b822775ecc1c5a8cfd4d35323b994f8a3a1553daadc4da62666a9fddcea",
+    "assets/tools/dump_words.py": "e0046dd792014d0e78790e498b05c04396cfa69d3a01ac229081306a659dbbff",
+    "assets/tools/pauses.py": "24633a41687705c77db689c09e555c0d15b07bf4280d35a2cb899f6fc36b4090",
+    "LICENSE": "8565b2cbae0310978cd1a3ee46ee257dc7f183644ac860d61f84fb65830f3812"
+  }
+}

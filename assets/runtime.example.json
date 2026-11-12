@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "ffmpeg": null,
+  "ffprobe": null,
+  "blender": null,
+  "node": null,
+  "speech_python": null,
+  "asr_model": null,
+  "aligner_model": null,
+  "speech_device": "cuda:0",
+  "expected_gpu": null,
+  "remotion_project": null,
+  "font_file": null,
+  "sfx_library": null,
+  "clap_python": null,
+  "clap_checkpoint": null,
+  "indextts_root": null,
+  "indextts_url": "http://127.0.0.1:19887",
+  "vision_url": "http://127.0.0.1:1234/v1",
+  "vision_model": null
+}

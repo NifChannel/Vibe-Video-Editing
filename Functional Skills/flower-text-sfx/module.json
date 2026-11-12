@@ -1,0 +1,7 @@
+{
+  "id": "flower-text-sfx",
+  "name": "花字音效",
+  "description": "为花字、动态重点字幕和文字动效匹配音效。按动效和口播节奏从本机 Mixkit、Kenney 音效库选声，按需用 LAION CLAP 排候选，再试听、对帧和混音。",
+  "aliases": ["花字配音效", "动态字幕音效"],
+  "cues": "花字加音效、关键词弹出声、动效对点、CLAP 文本检索音效"
+}

@@ -1,0 +1,3 @@
+interface:
+  display_name: "花字音效"
+  short_description: "从本机音效库为花字选声，按动效落点对帧并混入成片。"

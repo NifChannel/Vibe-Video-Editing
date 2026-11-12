@@ -1,0 +1,3 @@
+interface:
+  display_name: "样片分析"
+  short_description: "粗扫长样片、对照同风格作品，输出带时间码的拉片报告。"

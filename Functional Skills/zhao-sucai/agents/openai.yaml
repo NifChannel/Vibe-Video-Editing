@@ -1,0 +1,4 @@
+interface:
+  display_name: "找素材"
+  short_description: "用本地视觉模型筛选多集视频，核实目标动作及帧级剪口并导出独立素材"
+  default_prompt: "使用 $zhao-sucai 从本地视频中寻找我指定的片段，先提醒首尾跳过选项，再核对并导出素材。"

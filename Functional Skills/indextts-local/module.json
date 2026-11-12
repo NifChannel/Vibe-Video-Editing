@@ -1,0 +1,10 @@
+{
+  "id": "indextts-local",
+  "name": "本地 IndexTTS 配音",
+  "description": "自动准备本地 IndexTTS 环境与权重，使用获准参考音频生成配音。",
+  "aliases": [
+    "IndexTTS",
+    "本地配音"
+  ],
+  "cues": "文本转语音、视频旁白、本地 IndexTTS"
+}

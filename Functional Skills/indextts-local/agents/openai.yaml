@@ -1,0 +1,3 @@
+interface:
+  display_name: "本地 IndexTTS 配音"
+  short_description: "自动准备兼容的本地配音环境，使用获准参考声音并核对实际输出时长"
