@@ -8,7 +8,7 @@
 
 <p><strong>简体中文</strong> · <a href="README.en.md">English</a></p>
 
-<p><code>Windows x64</code> · <code>Codex Skill</code> · <code>Preview</code></p>
+<p><code>Windows x64</code> · <code>Codex Skill</code> · <code>V0.1 Preview</code></p>
 
 <p><a href="#quick-start">下载安装</a> · <a href="#features">功能</a> · <a href="#how-it-works">工作原理</a> · <a href="#usage">使用示例</a> · <a href="#showcase">剪辑案例</a></p>
 

@@ -1,6 +1,7 @@
 {
   "name": "vibe-video-editing",
   "display_name": "vibe video editing",
+  "version": "V0.1 Preview",
   "status": "preview",
   "license_choice": "No license",
   "supported_os": [
