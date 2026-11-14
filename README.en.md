@@ -14,6 +14,8 @@
 
 </div>
 
+![Vibe Video Editing cover in light lavender](assets/readme-cover-lavender.png)
+
 | Approach | Workflow |
 | --- | --- |
 | **Traditional editing** | Spend substantial time reviewing and selecting footage, cleaning up speech, working out the edit, and manually editing and exporting revisions. Repetitive operations take time and energy. |
@@ -24,8 +26,6 @@
 Give Codex your footage, script, reference videos, and editing goals. This skill provides a reusable workflow for analysis, planning, editing, captions, audio, and checking the actual deliverables. You can also save editing styles for reuse in similar projects.
 
 This is a **Windows preview**.
-
-*Author's note: Differences in model style and creative capabilities can affect the result, so the same skill may produce very different videos in Codex and DeepSeek Harness (DSH). Editing workflow experiments have so far been conducted only in Codex; other platforms still require adaptation and validation.*
 
 Automated dependency setup and several specialized capabilities still need validation on the target machine. See [Current status](#status).
 
@@ -39,6 +39,13 @@ Automated dependency setup and several specialized capabilities still need valid
 | Creators with an idea | Provide footage and references, then guide production through conversation. The default workflow can be initiated in Codex and executed by background tools without manually operating traditional editing software. |
 
 You still decide what the video should communicate, which material to use, and which version is ready to deliver.
+
+<a id="agent-models"></a>
+## 🧠 Test baseline and model adaptation
+
+This skill was designed, refined, and tested with **GPT-6.1 Sol**, using **high or extra high** reasoning effort. The demonstration video was also produced with this setup. The current prompts and workflow were primarily tuned around this combination.
+
+The author also tried **DeepSeek V4.1 Flash-1017 with DeepSeek Harness (DSH)**. In those trials, it could carry out the main production steps. Compared with GPT-6.1 Sol, the author's experience was that its task judgment and execution were somewhat less reliable, while its creative choices were more exploratory. As a result, this skill's encouragement of creativity can lead to overly aggressive choices with that setup. Narrowing the creative scope, making constraints explicit, and adjusting prompts against the actual video may help. Switching to **GPT-6.2 Sol, Opus 5.5**, or other models and agent environments may likewise require additional tuning.
 
 <a id="quick-start"></a>
 ## 🚀 Download and install
