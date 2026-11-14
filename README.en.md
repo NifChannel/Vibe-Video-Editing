@@ -105,26 +105,13 @@ my-video-project/
 └─ media/         Original footage, images, recordings, scripts, and other usable material
 ```
 
-**References** help the agent analyze shots, pacing, captions, color, and sound. **Media** supplies the material for the current edit. Add the intended use, aspect ratio, approximate duration, and anything that must be preserved. You can also provide file paths directly; you do not need to pre-cut the footage into clips.
+**References** help the agent analyze shots, pacing, captions, color, and sound. **Media** supplies the material for the current edit. Add the intended use, aspect ratio, approximate duration, and anything that must be preserved, then let the agent analyze the material and produce a complete first cut. You can also provide file paths directly; you do not need to pre-cut the footage into clips.
 
 For longer recordings with pauses, repeated takes, or irrelevant sections, ask the agent to map the content and mark candidate ranges before selecting and arranging the edit. This reduces the manual work of reviewing and organizing footage segment by segment.
 
 For example: “Use the reference's pacing to make a vertical short from this footage. Get to the point faster, keep the original voice, and preserve my script.”
 
-Review a representative segment, then give feedback on the actual result: “this drags,” “the caption covers the speaker,” or “this shot does not support the narration.” The agent revises the relevant visuals, captions, or audio and works toward the full video.
-
-## 💡 Where this skill comes from
-
-For the current video demonstration, the author used Codex to edit the original recorded speech without manually operating editing software. In a separate sample demonstration, approximately **11 minutes of source footage** became a finished video following the brief; the author recorded a processing time of roughly **half an hour**. This describes one demonstration; actual turnaround depends on the footage, hardware, and requested revisions. The example videos will be added later.
-
-It grew out of repeated editing and revision work: protecting speech sounds when tightening a cut, keeping captions readable, translating a reference video's techniques into the result, reusing accepted visuals during an audio revision, and keeping production assets useful for later revisions.
-
-Those lessons became shared production rules and modules loaded as needed:
-
-- **Start with the current footage and references.** Inspect the actual videos before choosing pacing, captions, or visual treatment.
-- **Protect the script and original speech.** Treat the approved script as the content baseline and make cuts around the real delivery.
-- **Separate style from tools.** Learn style from the current references while reusing scripts, analysis methods, and delivery checks.
-- **Verify the output.** Check actual captions, sound, video, and production assets, and describe the scope of verification.
+The agent first produces and checks a complete first cut for you to watch. Give feedback on the actual result: “this drags,” “the caption covers the speaker,” or “this shot does not support the narration.” The agent adjusts the relevant visuals, captions, or audio and exports revised versions until you are satisfied.
 
 <a id="features"></a>
 ## 🧰 What it does
@@ -205,7 +192,8 @@ Script: D:\VideoProjects\demo\script.txt
 Reference video: D:\VideoProjects\demo\reference.mp4
 
 Analyze the reference video's pacing, captions, and audio treatment, then edit a video using my footage.
-Preserve my script. Propose the edit and create a representative short segment before finishing the full video.
+Preserve my script. Produce a complete first cut and run the necessary checks before sharing it with me.
+I will give feedback on the video, then you can make the revisions and export an updated version.
 ```
 
 **Clean up original speech only**
