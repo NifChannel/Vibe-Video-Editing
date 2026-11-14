@@ -12,7 +12,7 @@
 
 ## 工具入口与适配范围
 
-本 skill 的 vendor/blazerior-videoediting/ 仅保留 MIT 许可证、来源校验，以及实际需要的 dump_words.py、pauses.py、build.py。先读[工具说明](../vendor/blazerior-videoediting/README.md)。
+本 skill 的 [Blazerior 功能模块](../Functional%20Skills/blazerior-videoediting/SKILL.md)中仅保留 MIT 许可证、来源校验，以及实际需要的 dump_words.py、pauses.py、build.py。先读[工具说明](../Functional%20Skills/blazerior-videoediting/README.md)。
 
 1. 用 scripts/qwen_transcribe.py 在已验证环境识别与对齐。将所需第三方工具复制到当前项目 tools，运行词表与停顿检查，再校对初稿和生成 EDL。空转写先排查，不把空结果交给词表工具。
 2. 用 scripts/speech_evidence.py 做原录全覆盖声学补查。候选只作导航，不自动决定剪口。修订可复用来源、模型、配置和时间域一致的产物；从零制作时按原片重新处理。

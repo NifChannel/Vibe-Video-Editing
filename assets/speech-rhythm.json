@@ -7,20 +7,59 @@
   "styles": {
     "auto": {
       "label": "自动",
-      "description": "无口播跳过，有口播用默认。",
+      "description": "无口播跳过；有口播优先按本次要求、选择或样片处理，否则使用默认方案。",
       "effective_when_speech_present": "default"
     },
     "default": {
       "label": "默认风格",
-      "description": "一般口播，保留自然节奏。",
-      "evidence_status": "reference_policy_requires_project_calibration",
-      "timing_policy": "修正口误、重复和突出呼吸；适度收紧句内多余气口，优先保留原有自然句间节奏。",
-      "within_clause_redundant_gap_reference_seconds": [
-        0.08,
-        0.15
+      "description": "无口播样片和明确口播要求时，采用连贯、清晰且有自然分句与转折的默认节奏。",
+      "application_conditions": {
+        "speech_present": "yes",
+        "reference_present": "no",
+        "speech_brief_empty": true,
+        "eligible_choices": [
+          "auto",
+          "default"
+        ]
+      },
+      "timing_policy": "保留完整流畅表达，清理废弃重录、误起和无意义重复；按分句、完整句间、主题转换分别审查保留语流中的停顿。",
+      "pause_targets_seconds": {
+        "clause_or_list": {
+          "target": 0.25,
+          "range": [
+            0.2,
+            0.4
+          ]
+        },
+        "sentence": {
+          "target": 0.8,
+          "range": [
+            0.6,
+            1.1
+          ]
+        },
+        "concept": {
+          "target": 2.2,
+          "range": [
+            1.9,
+            2.6
+          ]
+        }
+      },
+      "over_range_policy": "逐处审查超过常用范围的停顿，确认冗余且有字音安全余量后收紧。",
+      "short_natural_gap_policy": "保留自然流畅的短衔接，不为满足范围下限而补静音。",
+      "semantic_exceptions": [
+        "强调",
+        "设问",
+        "包袱",
+        "理解停顿"
       ],
-      "sentence_pause_policy": "preserve_natural_only_shorten_clear_drag",
-      "whole_track_speedup": false
+      "targets_are_not_mandatory_durations": true,
+      "protect_word_edges_and_necessary_breaths": true,
+      "breath_policy": "将停顿时长和其中声音分开判断；处理突出呼吸与口腔杂声，保留必要换气，按实际录音确定处理方式和幅度。",
+      "execution_policy": "检查保留语流内部的气口和衔接，逐处形成保留或收紧理由；清掉重录本身不等于已应用默认节奏。",
+      "whole_track_speedup": false,
+      "inherit_visual_style": false
     },
     "compact": {
       "label": "紧凑口播",

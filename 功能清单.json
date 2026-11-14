@@ -2,6 +2,18 @@
   "schema_version": 1,
   "functions": [
     {
+      "id": "blazerior-videoediting",
+      "name": "Blazerior 口播剪辑工具",
+      "description": "整合 blazerior/videoediting-claude-skill 的词表、停顿与 EDL 执行工具，供 Qwen 原声口播整理流程调用；保留第三方许可与来源校验。",
+      "aliases": [
+        "Blazerior",
+        "Blazerior 口播工具"
+      ],
+      "cues": "原录口播整理、词表校对、停顿候选、EDL、Blazerior",
+      "reference": "Functional Skills/blazerior-videoediting/SKILL.md",
+      "module": "Functional Skills/blazerior-videoediting/module.json"
+    },
+    {
       "id": "flower-text-sfx",
       "name": "花字音效",
       "description": "为花字、动态重点字幕和文字动效匹配音效。按动效和口播节奏从本机 Mixkit、Kenney 音效库选声，按需用 LAION CLAP 排候选，再试听、对帧和混音。",

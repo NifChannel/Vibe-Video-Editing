@@ -17,7 +17,7 @@
 | Approach | Workflow |
 | --- | --- |
 | **Traditional editing** | Spend substantial time reviewing and selecting footage, cleaning up speech, working out the edit, and manually editing and exporting revisions. Repetitive operations take time and energy. |
-| **Vibe Video Editing** | Give the agent your media and brief, let it produce a first cut, then review the result and describe your changes. The agent handles the editing and exports through each revision. |
+| **Vibe Video Editing** | Give the agent your media and brief, let it produce a first cut, then review the result and describe your changes. The agent handles the editing and exports through each revision. Once you are happy with the result, ask it to save the confirmed editing rules as a reusable style for similar projects. |
 
 **Keep your attention on the content, creative choices, and judgment. Delegate the repetitive operations to the agent.**
 
@@ -129,16 +129,19 @@ Those lessons became shared production rules and modules loaded as needed:
 <a id="features"></a>
 ## 🧰 What it does
 
-The main workflow coordinates footage, scripts, timelines, [original speech cleanup](references/speech-editing.md), regular captions, mixing, and final checks. It loads the following **six specialized modules** when needed.
+The main workflow coordinates footage, scripts, timelines, [original speech cleanup](references/speech-editing.md), regular captions, mixing, and final checks. It loads the following **seven specialized modules** when needed.
 
 | Capability | Purpose | Details |
 | --- | --- | --- |
+| Blazerior speech editing tools | Provide word lists, pause candidates, and EDL execution tools for original speech cleanup, alongside the main workflow's Qwen recognition and alignment | [Module](Functional%20Skills/blazerior-videoediting/SKILL.md) |
 | Reference analysis | Break down structure, shots, captions, and audio pacing into a timecoded report | [Module](Functional%20Skills/video-sample-analysis/SKILL.md) |
 | Local footage search | Find clips by character, action, or visual features, verify candidates, and export selections | [Module](Functional%20Skills/zhao-sucai/SKILL.md) |
 | Local [IndexTTS](https://github.com/index-tts/index-tts) voiceover | Generate narration from a script and authorized voice references, then time the edit to the actual audio | [Module](Functional%20Skills/indextts-local/SKILL.md) |
 | Remotion text effects | Create keyword emphasis, animated captions, and text treatments | [Module](Functional%20Skills/remotion-flower-text/SKILL.md) |
 | Text animation sound effects | Select, audition, align, and mix sounds for text motion | [Module](Functional%20Skills/flower-text-sfx/SKILL.md) |
 | Color grading | Correct exposure and white balance, match shots, and handle project-specific LUT / Log / HDR workflows | [Module](Functional%20Skills/video-color-grading/SKILL.md) |
+
+Original speech cleanup reuses the word-list, pause, and EDL editing tools from [blazerior/videoediting-claude-skill](https://github.com/blazerior/videoediting-claude-skill). Credit and thanks to the original author; the bundled tools retain their MIT license and source checksums. Recognition and alignment use this project's Qwen adapter.
 
 Only the capabilities needed for the current request are loaded. Work on a complete video or ask for a single task such as reference analysis, speech cleanup, caption revision, voiceover, or grading. The detailed workflow documents are currently in Chinese.
 
@@ -229,6 +232,20 @@ The style library starts empty. Provide reference videos or describe what the cu
 
 No text animation template library is bundled. Find a suitable public library and give Codex its link to download, check its license, and adapt it, or create the required effects within the current project.
 
+<a id="hardware"></a>
+## 💻 Recommended hardware
+
+These are suggested configurations. The minimum configuration has not been validated across the full workflow; actual requirements depend on media resolution, edit complexity, and the local models enabled.
+
+| Component | Minimum (suggested; pending validation) | Recommended | Author's test machine |
+| --- | --- | --- | --- |
+| Processor | 6 cores / 12 threads | 8 cores / 16 threads or higher | AMD Ryzen 9 9950X3D, 16 cores / 32 threads |
+| Memory | 16 GB RAM | 32 GB RAM | 48 GB RAM |
+| Graphics | 8 GB VRAM | 16 GB VRAM | AMD Radeon RX 9070, 16 GB VRAM |
+| Operating system | Windows; Linux / macOS compatibility pending validation | Windows 11 | Windows 11 25H2 |
+
+**This release currently supports Windows only; automated installation targets Windows x64.** Linux / macOS have not yet been adapted or validated and are outside this release's supported platforms. GPU compatibility with the model runtime matters as well as VRAM capacity; the current Qwen adapter uses compatible NVIDIA CUDA / AMD ROCm environments. The test machine specification does not imply that every specialized capability has passed validation. See [Current status](#status) for the verified scope.
+
 <a id="status"></a>
 ## 🪟 Requirements and current status
 
@@ -266,13 +283,13 @@ This example demonstrates the Vibe Video Editing workflow. Copyright in the orig
 
 - [Main skill](SKILL.md) · [Function catalog](功能清单.md) · [Style catalog](风格清单.md)
 - [Setup and dependencies](安装与外部依赖.md) · [Project preferences](references/project-settings.md)
-- [Third-party speech tools and attribution](vendor/blazerior-videoediting/README.md)
+- [Third-party speech tools and attribution](Functional%20Skills/blazerior-videoediting/README.md)
 
 The README's quick-entry and category navigation structure was inspired by [Awesome GitHub Copilot](https://github.com/github/awesome-copilot). This project's content and installation instructions describe its own workflow.
 
 ## 📄 License
 
-The main project currently has **No license** and does not provide a general-purpose usage grant. Third-party tools retain their own licenses and notices; see the bundled [MIT LICENSE](vendor/blazerior-videoediting/LICENSE) and the dependency guide.
+The main project currently has **No license** and does not provide a general-purpose usage grant. Third-party tools retain their own licenses and notices; see the bundled [MIT LICENSE](Functional%20Skills/blazerior-videoediting/LICENSE) and the dependency guide.
 
 ---
 

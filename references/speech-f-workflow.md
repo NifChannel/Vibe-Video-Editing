@@ -2,12 +2,12 @@
 
 适用于原录口播、解说和采访。此处约定识别与质量流程；具体节奏、响度、剪点和视觉规范由当前项目决定，用户明确要求优先。
 
-识别前先按[口播节奏选择](speech-rhythm.md)读取本项目 `speech.style` 并解析到实际规划。缺少项目配置时采用默认口播风格，明确无口播则跳过整理。用户选择舒缓或紧凑时只改变声音节奏依据，不降低以下质量要求。
+识别前先按[口播节奏选择](speech-rhythm.md)读取本项目 `speech.style`，并核对本次口播参考和明确口播要求，再解析到实际规划。需要剪口播且两者均无时，采用默认预设的分句、完整句间与主题转换目标；有要求或样片时优先据此规划，参考状态未知时先确认材料，不直接套默认秒数。明确无口播则跳过整理。默认方案无需预先统计节奏；用户选择舒缓或紧凑时沿用其声音政策，均不降低以下质量要求。
 
 ## 工具与模型职责
 
 - **基模：Qwen3-ASR-1.7B；词/字时间：Qwen3-ForcedAligner-0.6B。** 对齐的是实际识别并校对的录音内容，不把客户定稿强制对齐成录音里没说过的话。Qwen 不一定逐字保留犹豫和误起，文字流畅不代表声音已无口误。
-- **Codex 做语义决定，声学证据校准剪口，Blazerior 的词表/停顿/EDL 和 FFmpeg 执行。** 仅保留实际需要的第三方工具，来源见 vendor/blazerior-videoediting/README.md。识别和对齐使用 scripts/qwen_transcribe.py；`dump_words.py`、`pauses.py` 仍实际运行。音频专用适配器不是上游原生 build.py，记录实际执行路径。
+- **Codex 做语义决定，声学证据校准剪口，Blazerior 的词表/停顿/EDL 和 FFmpeg 执行。** 仅保留实际需要的第三方工具，来源见 Functional Skills/blazerior-videoediting/README.md。识别和对齐使用 scripts/qwen_transcribe.py；`dump_words.py`、`pauses.py` 仍实际运行。音频专用适配器不是上游原生 build.py，记录实际执行路径。
 - 先读[本机运行环境](local-runtime.md)。按自动配置选择并核验本机实际 GPU；模型参数、前向张量和显存记录都要支持 GPU 执行。不可静默回退 CPU、Whisper-small 或云端服务。文件读取、分词、声学测量和 FFmpeg 的 CPU 运算不属于模型 CPU 回退。
 
 ## 1. 原片与时间基准
@@ -30,7 +30,7 @@ python scripts/runtime_config.py run-qwen --input "<原片绝对路径>" --outpu
 
 保存每块原始识别与原始对齐、`transcript.raw.json`、校对副本和独立纠正记录。适配器的 `transcript.json` 为 Blazerior 兼容初稿，**不是已校对结论**。没有可用词概率时，原始置信度为 null，兼容字段 `p=-1` 明确表示未知，不能伪造高置信度。
 
-复制 vendor 工具到本项目，使用同一 Python 实际执行：
+从 [Blazerior 功能模块](../Functional%20Skills/blazerior-videoediting/SKILL.md)复制所需工具到本项目，使用同一 Python 实际执行：
 
 ```powershell
 & $speechPython "<项目>/tools/dump_words.py" "<项目>/work/speech/asr/transcript.json"

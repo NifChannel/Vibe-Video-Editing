@@ -25,12 +25,14 @@ vibe-video-editing/
 ├─ 风格清单.json / 风格清单.md
 ├─ 功能清单.json / 功能清单.md
 ├─ scripts/                 共用脚本与模块清单工具
-└─ references/、assets/、vendor/  共用规范、参数及内置依赖
+└─ references/、assets/       共用规范与参数（第三方工具随功能模块保存）
 ```
 
 AI 查看库前运行 `python scripts/library.py sync`，再按需求读取 [风格清单.json](风格清单.json) 或 [功能清单.json](功能清单.json)。用户可读 [风格清单.md](风格清单.md) 与 [功能清单.md](功能清单.md)。清单从模块的 `module.json` 生成；命令行 `list` / `register` 也自动刷新，不维护另一份手写清单。
 
 功能库只在需要时加载：
+
+- [Blazerior 口播剪辑工具](Functional%20Skills/blazerior-videoediting/SKILL.md)：整理原录口播、解说或采访时调用，提供词表、停顿与 EDL 工具；识别、对齐和质量流程沿用下文共用规范。
 
 - [样片分析](Functional%20Skills/video-sample-analysis/SKILL.md)：用户要求拉片，或本次制作需要从参考成片提取剪辑做法时，读取并执行该模块。
 - [本地 IndexTTS 配音](Functional%20Skills/indextts-local/SKILL.md)：需要 TTS 旁白或指定音色时使用。
@@ -43,9 +45,9 @@ AI 查看库前运行 `python scripts/library.py sync`，再按需求读取 [风
 
 ## 制作前读取项目配置
 
-由 Codex 根据当前工程与用户要求读取或生成 video-editing.delivery.json，当前格式仅保存项目目录和口播节奏选择。执行 `python scripts/delivery_config.py --project "本次工程文件夹绝对路径"`；没有配置时采用默认口播节奏，无口播则跳过整理。字段与保存方式见[项目配置](references/project-settings.md)。
+由 Codex 根据当前工程与用户要求读取或生成 video-editing.delivery.json，当前格式仅保存项目目录和口播节奏选择。执行 `python scripts/delivery_config.py --project "本次工程文件夹绝对路径"`；没有配置时口播选择为 `default`；确认需要剪口播且既无口播参考样片、也无明确口播要求时，才启用默认口播预设，无口播则跳过整理。字段与保存方式见[项目配置](references/project-settings.md)。
 
-按[口播节奏选择](references/speech-rhythm.md)解析 speech.style，实际用于当前项目的声音规划，不写全局风格。配置损坏、版本或字段不支持时明确报错，不能静默覆盖原文件。
+按[口播节奏选择](references/speech-rhythm.md)同时核对 `speech.style`、本次口播要求和口播参考是否存在，再解析并实际用于当前项目的声音规划，不写全局风格。本次要求、用户指定的非默认选择和样片优先于缺省预设；参考状态未知时先核对材料，不直接套默认秒数。配置损坏、版本或字段不支持时明确报错，不能静默覆盖原文件。
 
 当前版以成片、独立字幕、分轨、制作配置与素材记录为交付范围。遇到范围之外的工程格式要求，应说明当前支持边界，不承诺未提供的转换能力。
 
@@ -82,9 +84,9 @@ python scripts/style.py resolve --style "用户已保存的风格名" --override
 
 ## 原声口播整理（默认）
 
-以后视频需要剪辑原录口播、解说或采访时，除非用户明确指定其他方法，默认以 **Qwen3-ASR-1.7B＋Qwen3-ForcedAligner-0.6B** 识别及对齐，按[Qwen F 流程](references/speech-f-workflow.md)完成全片语义审查、原录全覆盖声学补查、独立处理停顿与呼吸、统一 EDL/映射、导出回查与计时。结合 [blazerior/videoediting-claude-skill](https://github.com/blazerior/videoediting-claude-skill) 的词表、停顿与 EDL 工具执行，详见[口播整理规范](references/speech-editing.md)。不得静默回退 CPU 或 Whisper-small；实际运行环境见[本机运行环境](references/local-runtime.md)。
+以后视频需要剪辑原录口播、解说或采访时，除非用户明确指定其他方法，默认以 **Qwen3-ASR-1.7B＋Qwen3-ForcedAligner-0.6B** 识别及对齐，按[Qwen F 流程](references/speech-f-workflow.md)完成全片语义审查、原录全覆盖声学补查、独立处理停顿与呼吸、统一 EDL/映射、导出回查与计时。调用 [Blazerior 口播剪辑工具](Functional%20Skills/blazerior-videoediting/SKILL.md)执行词表、停顿与 EDL 工具流程，详见[口播整理规范](references/speech-editing.md)。不得静默回退 CPU 或 Whisper-small；实际运行环境见[本机运行环境](references/local-runtime.md)。
 
-在遵守客户稿件内容约定的前提下，目标是**句内连贯、句间自然**：收紧词间多余气口、犹豫和重复起音，按当前口播选择与实际安全区校准参考间隔，完整保留字尾、送气与擦音；句子之间保持自然节奏，不统一压短。句内缩短后协调后续旁白，避免把删掉的时间变成新的句间空白。这是所有现有及未来风格共同的质量要求，不自动继承上游字幕、调色、放大或画幅规则。用户明确要求和已认可的剪法优先。
+在遵守客户稿件内容约定的前提下，目标是**句内连贯、句间自然**：收紧词间多余气口、犹豫和重复起音，按当前口播选择与实际安全区校准参考间隔，完整保留字尾、送气与擦音；句子之间保持自然节奏，不统一压短。句内缩短后协调后续旁白，避免把删掉的时间变成新的句间空白。默认预设的具体秒数和启用条件见[口播节奏选择](references/speech-rhythm.md)；应检查保留语流内部的气口与衔接，并把具体判断落实到剪辑计划，不能仅清理重录或保存配置就视为已应用。这是所有现有及未来风格共同的质量要求，不自动继承上游字幕、调色、放大或画幅规则。用户明确要求和已认可的剪法优先。
 
 ## 字幕可读性与断句
 

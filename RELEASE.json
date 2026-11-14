@@ -10,7 +10,7 @@
   "supported_architectures": [
     "x64"
   ],
-  "functional_modules": 6,
+  "functional_modules": 7,
   "initial_saved_styles": 0,
   "validation_status": "Preview: fresh-environment automatic installation and model/rendering capabilities require end-to-end validation.",
   "validation_reference": "安装与外部依赖.md#validation"

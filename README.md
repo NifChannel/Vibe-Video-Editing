@@ -17,7 +17,7 @@
 | 方式 | 工作流程 |
 | --- | --- |
 | **传统剪辑** | 花费大量时间审阅和筛选素材、整理口播、梳理剪辑思路，再手动完成剪辑与反复导出，重复操作占用大量精力。 |
-| **Vibe Video Editing** | 把素材和需求交给 Agent，由它完成初版成片；看过实际效果后，直接告诉它如何修改，让 Agent 继续处理剪辑与导出。 |
+| **Vibe Video Editing** | 把素材和需求交给 Agent，由它完成初版成片；看过实际效果后，直接告诉它如何修改，让 Agent 继续处理剪辑与导出。满意后，还可以让 Agent 将本次确认的剪辑规则总结为可复用风格，供后续同类项目调用。 |
 
 **把精力留给内容、创意和判断，把繁琐的重复操作交给 Agent。**
 
@@ -128,16 +128,19 @@ python scripts/runtime_config.py doctor --features base captions
 <a id="features"></a>
 ## 🧰 能做什么
 
-主流程组织素材、稿件、时间线、[原声口播整理](references/speech-editing.md)、普通字幕、混音和成片检查，再按任务加载以下 **6 个功能模块**。
+主流程组织素材、稿件、时间线、[原声口播整理](references/speech-editing.md)、普通字幕、混音和成片检查，再按任务加载以下 **7 个功能模块**。
 
 | 功能 | 用来做什么 | 说明 |
 | --- | --- | --- |
+| Blazerior 口播剪辑工具 | 提供原声口播整理所需的词表、停顿与 EDL 工具，与主流程的 Qwen 识别及对齐配合使用 | [模块](Functional%20Skills/blazerior-videoediting/SKILL.md) |
 | 样片分析 | 拆解结构、镜头、字幕与声音节奏，形成带时间码的参考报告 | [模块](Functional%20Skills/video-sample-analysis/SKILL.md) |
 | 本地长视频找素材 | 按角色、动作或视觉特征检索片段，复核后导出独立选段 | [模块](Functional%20Skills/zhao-sucai/SKILL.md) |
 | 本地 [IndexTTS](https://github.com/index-tts/index-tts) 配音 | 按文稿与获准参考声音生成旁白，再以实际音频安排剪辑 | [模块](Functional%20Skills/indextts-local/SKILL.md) |
 | Remotion 花字 | 制作关键词强调、动态重点字幕和文字效果 | [模块](Functional%20Skills/remotion-flower-text/SKILL.md) |
 | 花字音效 | 为文字动效选声、试听、对帧和混音 | [模块](Functional%20Skills/flower-text-sfx/SKILL.md) |
 | 调色 | 校正曝光与白平衡，匹配镜头，按项目处理 LUT / Log / HDR | [模块](Functional%20Skills/video-color-grading/SKILL.md) |
+
+原声口播整理复用了 [blazerior/videoediting-claude-skill](https://github.com/blazerior/videoediting-claude-skill) 的词表、停顿与 EDL 剪辑工具，感谢原作者的工作；随包保留其 MIT 许可证与来源校验，识别和对齐使用本项目的 Qwen 适配器。
 
 这里只加载当前需要的功能。可以完成整条视频，也可以只分析样片、整理口播、改字幕、配音或调色。
 
@@ -227,6 +230,20 @@ Agent 制定剪辑计划与时间线
 
 本包不附带花字模板库。你可以自行寻找可用的公开模板库，把链接交给 Codex 下载、检查许可并适配；也可以在当前项目制作新效果。
 
+<a id="hardware"></a>
+## 💻 推荐配置
+
+以下为建议配置，其中最低配置尚未完成整套流程验证；实际需求取决于素材分辨率、视频复杂度及启用的本地模型。
+
+| 项目 | 最低配置（建议，待验证） | 推荐配置 | 作者测试设备 |
+| --- | --- | --- | --- |
+| 处理器 | 6 核 12 线程处理器 | 8 核 16 线程处理器或以上 | AMD Ryzen 9 9950X3D，16 核 32 线程 |
+| 内存 | 16 GB RAM | 32 GB RAM | 48 GB RAM |
+| 显卡 | 8 GB VRAM | 16 GB VRAM | AMD Radeon RX 9070，16 GB VRAM |
+| 操作系统 | Windows；Linux / macOS 兼容性待验证 | Windows 11 | Windows 11 25H2 |
+
+**当前发布版仅支持 Windows，自动安装限 Windows x64。** Linux / macOS 尚未适配与验证，不属于本版可用平台。显存容量之外，还需检查显卡与模型运行后端的兼容性；当前 Qwen 适配器使用兼容的 NVIDIA CUDA / AMD ROCm 环境。测试设备信息不代表所有专项能力均已完成验收，具体范围见[当前状态](#status)。
+
 <a id="status"></a>
 ## 🪟 环境与当前状态
 
@@ -264,13 +281,13 @@ Agent 制定剪辑计划与时间线
 
 - [主 skill](SKILL.md) · [功能清单](功能清单.md) · [风格清单](风格清单.md)
 - [安装与外部依赖](安装与外部依赖.md) · [项目配置](references/project-settings.md)
-- [第三方口播工具与来源](vendor/blazerior-videoediting/README.md)
+- [第三方口播工具与来源](Functional%20Skills/blazerior-videoediting/README.md)
 
 首页组织方式参考 [Awesome GitHub Copilot](https://github.com/github/awesome-copilot) 的快速入口与分类导航；本项目的内容与安装方式按自身功能编写。
 
 ## 📄 许可
 
-当前主项目选择 **No license**，尚未提供通用使用许可。第三方工具继续遵循其各自的许可证和声明，详见随附 [MIT LICENSE](vendor/blazerior-videoediting/LICENSE) 与依赖文档。
+当前主项目选择 **No license**，尚未提供通用使用许可。第三方工具继续遵循其各自的许可证和声明，详见随附 [MIT LICENSE](Functional%20Skills/blazerior-videoediting/LICENSE) 与依赖文档。
 
 ---
 
