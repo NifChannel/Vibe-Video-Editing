@@ -10,7 +10,7 @@
 
 <p><code>Windows x64</code> · <code>Codex Skill</code> · <code>V0.1 Preview</code></p>
 
-<p><a href="#quick-start">下载安装</a> · <a href="#features">功能</a> · <a href="#how-it-works">工作原理</a> · <a href="#usage">使用示例</a> · <a href="#showcase">剪辑案例</a></p>
+<p><a href="#quick-start">下载安装</a> · <a href="#features">功能</a> · <a href="#how-it-works">工作原理</a> · <a href="#usage">使用示例</a> · <a href="#showcase">Skill讲解与剪辑案例</a></p>
 
 </div>
 
@@ -255,14 +255,12 @@ Agent 制定剪辑计划与时间线
 完整边界见[能力验证状态](安装与外部依赖.md#validation)。软件、模型、字体与素材按各自条件取得，包内不包含权重、媒体或运行环境。
 
 <a id="showcase"></a>
-## 🎞️ 剪辑案例
+## 🎞️ Skill讲解与剪辑案例
 
-案例视频与制作说明将在后续补充。
+[▶ 在 B 站观看 Skill 讲解与剪辑案例](https://www.bilibili.com/video/BV11MsL6JEqY/)
 
 <!-- SHOWCASE:START -->
 ### 做菜样片：素材来源与署名
-
-案例视频待补充。
 
 - **原始素材：** [Cooking with Laura Homemade Pasta](https://commons.wikimedia.org/wiki/File:Cooking_with_Laura_Homemade_Pasta.webm)
 - **原作者：** Northampton Community Television

@@ -10,7 +10,7 @@
 
 <p><code>Windows x64</code> · <code>Codex Skill</code> · <code>V0.1 Preview</code></p>
 
-<p><a href="#quick-start">Download &amp; install</a> · <a href="#features">Features</a> · <a href="#how-it-works">How it works</a> · <a href="#usage">Examples</a> · <a href="#showcase">Showcase</a></p>
+<p><a href="#quick-start">Download &amp; install</a> · <a href="#features">Features</a> · <a href="#how-it-works">How it works</a> · <a href="#usage">Examples</a> · <a href="#showcase">Skill overview &amp; examples</a></p>
 
 </div>
 
@@ -257,14 +257,12 @@ Basic FFmpeg editing, mixing, and ASS-compatible caption export have integration
 See the [capability validation details](安装与外部依赖.md#validation) (Chinese). Obtain software, models, fonts, and media under their respective terms. Model weights, media, and runtimes are not bundled.
 
 <a id="showcase"></a>
-## 🎞️ Editing showcase
+## 🎞️ Skill overview and editing examples
 
-Example videos and production notes will be added later.
+[▶ Watch the skill overview and editing examples on Bilibili](https://www.bilibili.com/video/BV11MsL6JEqY/)
 
 <!-- SHOWCASE:START -->
 ### Cooking example: source and attribution
-
-The example video will be added later.
 
 - **Original footage:** [Cooking with Laura Homemade Pasta](https://commons.wikimedia.org/wiki/File:Cooking_with_Laura_Homemade_Pasta.webm)
 - **Original author:** Northampton Community Television
