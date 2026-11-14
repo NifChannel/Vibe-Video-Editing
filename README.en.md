@@ -40,13 +40,6 @@ Automated dependency setup and several specialized capabilities still need valid
 
 You still decide what the video should communicate, which material to use, and which version is ready to deliver.
 
-<a id="agent-models"></a>
-## 🧠 Test baseline and model adaptation
-
-This skill was designed, refined, and tested with **GPT-6.1 Sol**, using **high or extra high** reasoning effort. The demonstration video was also produced with this setup. The current prompts and workflow were primarily tuned around this combination.
-
-The author also tried **DeepSeek V4.1 Flash-1017 with DeepSeek Harness (DSH)**. In those trials, it could carry out the main production steps. Compared with GPT-6.1 Sol, the author's experience was that its task judgment and execution were somewhat less reliable, while its creative choices were more exploratory. As a result, this skill's encouragement of creativity can lead to overly aggressive choices with that setup. Narrowing the creative scope, making constraints explicit, and adjusting prompts against the actual video may help. Switching to **GPT-6.2 Sol, Opus 5.5**, or other models and agent environments may likewise require additional tuning.
-
 <a id="quick-start"></a>
 ## 🚀 Download and install
 
@@ -240,6 +233,13 @@ These are suggested configurations. The minimum configuration has not been valid
 | Operating system | Windows; Linux / macOS compatibility pending validation | Windows 11 | Windows 11 25H2 |
 
 **This release currently supports Windows only; automated installation targets Windows x64.** Linux / macOS have not yet been adapted or validated and are outside this release's supported platforms. GPU compatibility with the model runtime matters as well as VRAM capacity; the current Qwen adapter uses compatible NVIDIA CUDA / AMD ROCm environments. The test machine specification does not imply that every specialized capability has passed validation. See [Current status](#status) for the verified scope.
+
+<a id="agent-models"></a>
+## 🧠 Test baseline and model adaptation
+
+This skill was designed, refined, and tested with **GPT-6.1 Sol**, using **high or extra high** reasoning effort. The demonstration video was also produced with this setup. The current prompts and workflow were primarily tuned around this combination.
+
+The author also tried **DeepSeek V4.1 Flash-1017 with DeepSeek Harness (DSH)**. In those trials, it could carry out the main production steps. Compared with GPT-6.1 Sol, the author's experience was that its task judgment and execution were somewhat less reliable, while its creative choices were more exploratory. As a result, this skill's encouragement of creativity can lead to overly aggressive choices with that setup. Narrowing the creative scope, making constraints explicit, and adjusting prompts against the actual video may help. Switching to **GPT-6.2 Sol, Opus 5.5**, or other models and agent environments may likewise require additional tuning.
 
 <a id="status"></a>
 ## 🪟 Requirements and current status
